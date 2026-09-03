@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infosis | Solutions & Services</title>
+<meta name="description" content="Infosis SecuritySystem L.L.C detailed service and solution information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'details.css' %}">
+</head>
+<body>
+<div class="topline"><div>Dubai, United Arab Emirates</div><div><a href="tel:+971525893875">+971 52 589 3875</a><span>•</span><a href="mailto:sales@infosis.ae">sales@infosis.ae</a></div></div>
+<header class="detail-header">
+  <div class="detail-nav-wrap">
+    <a class="detail-brand" href="{% url 'home' %}"><img src="{% static 'assets/logo.png' %}" alt="Infosis SecuritySystem L.L.C"></a>
+    <button class="detail-menu" id="detailMenu" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <nav id="detailNav">
+      <a href="{% url 'home' %}">Home</a><a href="{% url 'home' %}#about">About Us</a><a href="{% url 'home' %}#services">Services</a><a href="{% url 'home' %}#partners">Technology Partners</a><a href="{% url 'home' %}#clients">Clients</a><a class="nav-contact" href="{% url 'home' %}#contact">Quick Enquiry</a>
+    </nav>
+  </div>
+</header>
+<main id="app"></main>
+<footer class="detail-footer"><div><img src="{% static 'assets/logo.png' %}" alt="Infosis"></div><div><strong>Infosis SecuritySystem L.L.C</strong><br>Dubai, United Arab Emirates<br><a href="tel:+971525893875">+971 52 589 3875</a> · <a href="mailto:sales@infosis.ae">sales@infosis.ae</a></div><a class="footer-btn" href="{% url 'home' %}#contact">Request a Consultation</a></footer>
+<script src="{% static 'details.js' %}"></script>
+</body>
+</html>

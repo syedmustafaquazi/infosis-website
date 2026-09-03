@@ -1,0 +1,562 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Infosis SecuritySystem L.L.C — IT Infrastructure, Cybersecurity, ELV, Smart Automation, Data Center and Managed IT Services in the UAE.">
+  <title>Infosis SecuritySystem L.L.C | UAE IT Infrastructure & Digital Transformation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Dubai, United Arab Emirates</div>
+      <div class="top-links">
+        <a href="tel:+971525893875">+971 52 589 3875</a>
+        <a href="mailto:sales@infosis.ae">sales@infosis.ae</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header" id="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Infosis SecuritySystem home">
+        <img src="{% static 'assets/logo.png' %}" alt="Infosis SecuritySystem L.L.C">
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About Us</a>
+
+        <div class="nav-drop">
+          <button class="drop-btn">Services <span>⌄</span></button>
+          <div class="drop-menu">
+            <a href="{% url 'details' %}?type=it-infrastructure">IT Infrastructure</a>
+            <a href="{% url 'details' %}?type=data-center">Data Center Solutions</a>
+            <a href="{% url 'details' %}?type=cybersecurity">Cybersecurity</a>
+            <a href="{% url 'details' %}?type=elv-security">ELV & Security</a>
+            <a href="{% url 'details' %}?type=smart-automation">Smart Automation</a>
+            <a href="{% url 'details' %}?type=managed-it">Managed IT & AMC</a>
+            <a href="{% url 'details' %}?type=unified-communications">Unified Communications</a>
+            <a href="{% url 'details' %}?type=technology-consulting">Technology Consulting</a>
+          </div>
+        </div>
+
+        <div class="nav-drop">
+          <button class="drop-btn">Solutions <span>⌄</span></button>
+          <div class="drop-menu">
+            <a href="{% url 'details' %}?type=data-center-infrastructure">Data Center & Infrastructure</a>
+            <a href="{% url 'details' %}?type=hospitality-retail">Hospitality & Retail</a>
+            <a href="{% url 'details' %}?type=digital-technologies">Digital Technologies</a>
+            <a href="{% url 'details' %}?type=other-solutions">Other Solutions</a>
+          </div>
+        </div>
+
+        <a href="#partners">Technology Partners</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact Us</a>
+        <a class="nav-cta" href="#contact">Quick Enquiry</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-slides" id="heroSlides">
+        <article class="hero-slide active" style="background-image:linear-gradient(90deg,rgba(2,24,52,.84),rgba(2,24,52,.24)),url('{% static "assets/hero-dubai.jpg" %}')">
+          <div class="container hero-content">
+            <span class="eyebrow">DUBAI • ABU DHABI • SHARJAH • UAE & GCC</span>
+            <h1>Your Trusted IT Infrastructure & Digital Transformation Partner</h1>
+            <p>Secure, scalable and future-ready technology solutions designed for modern business.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#services">Explore Our Services</a>
+              <a class="btn btn-light" href="#contact">Talk to an Expert</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="background-image:linear-gradient(90deg,rgba(2,24,52,.84),rgba(2,24,52,.22)),url('{% static "assets/hero-digital.jpg" %}')">
+          <div class="container hero-content">
+            <span class="eyebrow">ICT • SECURITY • ELV • AUTOMATION</span>
+            <h1>Technology That Works Around Your Business</h1>
+            <p>From planning and implementation to monitoring, maintenance and support, we manage the technology lifecycle.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#about">Discover Infosis</a>
+              <a class="btn btn-light" href="#methodology">How We Deliver</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="background-image:linear-gradient(90deg,rgba(2,24,52,.84),rgba(2,24,52,.24)),url('{% static "assets/hero-growth.jpg" %}')">
+          <div class="container hero-content">
+            <span class="eyebrow">SECURE • SCALABLE • FUTURE-READY</span>
+            <h1>Build a Stronger Digital Foundation</h1>
+            <p>Infrastructure, cybersecurity, data centers, smart automation and managed services under one technology partner.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Request a Consultation</a>
+              <a class="btn btn-light" href="#clients">View Our Clients</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <button class="hero-arrow prev" id="prevSlide" aria-label="Previous slide">‹</button>
+      <button class="hero-arrow next" id="nextSlide" aria-label="Next slide">›</button>
+      <div class="hero-dots" id="heroDots"></div>
+
+      <div class="hero-badge">
+        <strong>Established 2016</strong>
+        <span>Dubai, United Arab Emirates</span>
+      </div>
+    </section>
+
+    <!-- QUICK VALUE STRIP -->
+    <section class="value-strip">
+      <div class="container value-grid">
+        <div><b>01</b><span>End-to-End IT Solutions</span></div>
+        <div><b>02</b><span>24×7 Support & Managed Services</span></div>
+        <div><b>03</b><span>Certified Engineers & Specialists</span></div>
+        <div><b>04</b><span>Secure • Scalable • Future-Ready</span></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container split">
+        <div class="visual-stack reveal">
+          <div class="image-card main"><img src="{% static 'assets/about-tech.jpg' %}" alt="Digital technology and business"></div>
+          <div class="image-card small"><img src="{% static 'assets/about-cyber.jpg' %}" alt="Cybersecurity technology"></div>
+          <div class="experience-card">
+            <strong>2016</strong>
+            <span>Established in Dubai</span>
+          </div>
+        </div>
+
+        <div class="content reveal">
+          <span class="section-tag">ABOUT INFOSIS</span>
+          <h2>Technology veterans delivering dependable digital transformation.</h2>
+          <p class="lead">Infosis SecuritySystem L.L.C. was established in 2016 and is headquartered in Dubai, United Arab Emirates.</p>
+          <p>We serve clients across the UAE & GCC markets with end-to-end IT Infrastructure, Cybersecurity, ELV, Smart Automation and Managed Services solutions. Our team of certified professionals brings industry knowledge across hospitality, healthcare, enterprise ICT, security and ELV.</p>
+          <p>We design, plan, collaborate, manage and execute technology solutions with a strong focus on quality, compliance, reliability and long-term client value.</p>
+
+          <div class="mini-stats">
+            <div><strong>UAE</strong><span>Market Focus</span></div>
+            <div><strong>GCC</strong><span>Service Reach</span></div>
+            <div><strong>24×7</strong><span>Support Model</span></div>
+          </div>
+          <a class="text-link" href="#values">Explore our values <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="section-tag">WHAT WE DO</span>
+            <h2>Our Core Services</h2>
+          </div>
+          <p>Comprehensive IT Infrastructure & Digital Transformation capabilities for businesses across the UAE.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-img"><img src="{% static 'assets/datacenter.jpg' %}" alt="IT infrastructure and data center"></div>
+            <div class="service-body"><span class="num">01</span><h3>IT Infrastructure Solutions</h3><p>Network design, structured cabling, server and storage solutions for dependable business operations.</p><a href="{% url 'details' %}?type=it-infrastructure">Discuss a project →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-img"><img src="{% static 'assets/datacenter.jpg' %}" alt="Data center infrastructure"></div>
+            <div class="service-body"><span class="num">02</span><h3>Data Center Solutions</h3><p>Smart modular and pre-fabricated data centers, UPS and power solutions, compute, storage and connectivity.</p><a href="{% url 'details' %}?type=data-center">View capability →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-img"><img src="{% static 'assets/about-cyber.jpg' %}" alt="Cybersecurity"></div>
+            <div class="service-body"><span class="num">03</span><h3>Cybersecurity & Information Security</h3><p>Endpoint security, vulnerability assessment, compliance and threat protection for connected environments.</p><a href="{% url 'details' %}?type=cybersecurity">Secure your business →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-img"><img src="{% static 'assets/office.jpg' %}" alt="ELV and security systems"></div>
+            <div class="service-body"><span class="num">04</span><h3>ELV & Security Systems</h3><p>CCTV, access control, surveillance and monitoring systems designed around your site and operational needs.</p><a href="{% url 'details' %}?type=elv-security">Explore solutions →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-img"><img src="{% static 'assets/consulting.jpg' %}" alt="Smart automation"></div>
+            <div class="service-body"><span class="num">05</span><h3>Smart Automation Solutions</h3><p>Smart offices, homes, lighting, HVAC, GRMS and energy-focused automation experiences.</p><a href="{% url 'details' %}?type=smart-automation">Explore automation →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-img"><img src="{% static 'assets/team.jpg' %}" alt="Managed IT services"></div>
+            <div class="service-body"><span class="num">06</span><h3>Managed Services & AMC</h3><p>24×7 monitoring, outsourced helpdesk, preventive maintenance and remote or on-site IT support.</p><a href="{% url 'details' %}?type=managed-it">See managed services →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-img"><img src="{% static 'assets/hero-digital.jpg' %}" alt="Unified communications"></div>
+            <div class="service-body"><span class="num">07</span><h3>Unified Communications</h3><p>IP telephony, call center and collaboration solutions that connect people and business workflows.</p><a href="{% url 'details' %}?type=unified-communications">Explore digital tech →</a></div>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-img"><img src="{% static 'assets/consulting.jpg' %}" alt="Technology consulting"></div>
+            <div class="service-body"><span class="num">08</span><h3>Technology Consulting</h3><p>Strategic ICT advisory aligned with business objectives, infrastructure priorities and technology roadmaps.</p><a href="{% url 'details' %}?type=technology-consulting">Book a consultation →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKET FOCUS -->
+    <section class="section market">
+      <div class="container">
+        <div class="section-head light reveal">
+          <div>
+            <span class="section-tag">UAE MARKET FOCUS</span>
+            <h2>Solutions shaped around your industry.</h2>
+          </div>
+          <p>Infosis delivers specialized IT Infrastructure & Digital Transformation solutions across key UAE sectors.</p>
+        </div>
+        <div class="market-grid">
+          <article class="market-card reveal"><span>01</span><h3>Corporate Offices</h3><p>End-to-end IT setup, networking, cybersecurity and managed services.</p></article>
+          <article class="market-card reveal"><span>02</span><h3>Free Zone Companies</h3><p>Technology support for businesses operating in IFZA, DMCC, DAFZA and similar environments.</p></article>
+          <article class="market-card reveal"><span>03</span><h3>Hospitality & Hotels</h3><p>Smart room automation, GRMS, casting and security systems.</p></article>
+          <article class="market-card reveal"><span>04</span><h3>Retail & Shopping Malls</h3><p>Surveillance, networking, unified communications and automation.</p></article>
+          <article class="market-card reveal"><span>05</span><h3>Healthcare & Clinics</h3><p>Secure IT infrastructure, compliance and data protection.</p></article>
+          <article class="market-card reveal"><span>06</span><h3>Government & Semi-Government</h3><p>Reliable technology infrastructure and security-focused solutions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA CENTER -->
+    <section class="section feature" id="datacenter">
+      <div class="container split reverse-mobile">
+        <div class="content reveal">
+          <span class="section-tag">DATA CENTER & INFRASTRUCTURE</span>
+          <h2>Infrastructure engineered for performance, scalability and reliability.</h2>
+          <p>Infosis delivers advanced Data Center & IT Infrastructure solutions designed to support critical business workloads and future growth.</p>
+          <div class="feature-list">
+            <div><b>01</b><span><strong>Modular Data Centers</strong>Smart pre-fabricated DC solutions with fast deployment.</span></div>
+            <div><b>02</b><span><strong>Power & UPS Systems</strong>Single & three-phase scalable backup solutions.</span></div>
+            <div><b>03</b><span><strong>Server & Storage Infrastructure</strong>Secure, high-performance compute and storage setup.</span></div>
+            <div><b>04</b><span><strong>Network & Cabling</strong>Reliable LAN, WAN and fiber connectivity solutions.</span></div>
+          </div>
+        </div>
+        <div class="feature-image reveal"><img src="{% static 'assets/datacenter.jpg' %}" alt="Data center racks"></div>
+      </div>
+    </section>
+
+    <!-- HOSPITALITY -->
+    <section class="section hospitality" id="hospitality">
+      <div class="container split">
+        <div class="feature-image reveal"><img src="{% static 'assets/office.jpg' %}" alt="Hospitality and retail technology"></div>
+        <div class="content reveal">
+          <span class="section-tag">HOSPITALITY & RETAIL</span>
+          <h2>Connected guest experiences and secure retail environments.</h2>
+          <p>Infosis provides tailored technology solutions for UAE hospitality and retail sectors, combining guest experience, operational efficiency and security.</p>
+          <div class="pill-list">
+            <span>Guest Room Management (GRMS)</span>
+            <span>In-Room Casting</span>
+            <span>Retail Surveillance & Security</span>
+            <span>Structured Cabling</span>
+            <span>Wi-Fi Solutions</span>
+            <span>Unified Communications</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section capabilities" id="capabilities">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="section-tag">DIGITAL TECHNOLOGIES</span><h2>More technology, one accountable partner.</h2></div>
+          <p>Our current service portfolio also covers digital, ELV and operational technology requirements described on the Infosis website.</p>
+        </div>
+        <div class="cap-grid">
+          <article class="cap-card reveal"><div class="cap-icon">◉</div><h3>Network & Security</h3><p>Network switches, routers, firewalls, NAC, WAN load balancing and wireless networks.</p></article>
+          <article class="cap-card reveal"><div class="cap-icon">◌</div><h3>Voice & Collaboration</h3><p>Voice over Wi-Fi, IP and analogue telephony, video conferencing and collaboration solutions.</p></article>
+          <article class="cap-card reveal"><div class="cap-icon">◍</div><h3>ELV Systems</h3><p>Home automation, lighting control, GRMS, energy management, curtain control and access control.</p></article>
+          <article class="cap-card reveal"><div class="cap-icon">⌁</div><h3>Other Solutions</h3><p>IoT, environment monitoring, visitor management, Q-management, time attendance, UPS, CCUs and digital signage.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANAGED -->
+    <section class="section managed" id="managed">
+      <div class="container">
+        <div class="managed-panel reveal">
+          <div class="managed-copy">
+            <span class="section-tag">MANAGED IT SERVICES</span>
+            <h2>Proactive support that keeps your business moving.</h2>
+            <p>Reliable and proactive Managed IT Services to help maintain smooth and secure business operations.</p>
+            <a class="btn btn-primary" href="#contact">Ask about an AMC</a>
+          </div>
+          <div class="managed-grid">
+            <div><b>24×7</b><span>IT Support & Helpdesk</span><small>Continuous monitoring and rapid issue resolution.</small></div>
+            <div><b>AMC</b><span>Annual Maintenance Contracts</span><small>Preventive maintenance and system optimization.</small></div>
+            <div><b>ON/OFF</b><span>Remote & On-Site Support</span><small>Quick response for technical assistance.</small></div>
+            <div><b>MON</b><span>Infrastructure Monitoring</span><small>Performance tracking, updates and security management.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section values" id="values">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="section-tag">OUR CORE VALUES</span><h2>How we work with clients.</h2></div>
+          <p>The Infosis website emphasizes quality, openness, teamwork, flexibility, passion and integrity as core values.</p>
+        </div>
+        <div class="value-cards">
+          <div class="value-card reveal"><span>01</span><h3>Quality</h3><p>We strive for excellence and consistently aim to exceed our standards.</p></div>
+          <div class="value-card reveal"><span>02</span><h3>Openness & Honesty</h3><p>Open communication builds trust with employees, partners and clients.</p></div>
+          <div class="value-card reveal"><span>03</span><h3>Teamwork</h3><p>We value talented people and encourage contribution and collaboration.</p></div>
+          <div class="value-card reveal"><span>04</span><h3>Flexibility</h3><p>Services are tailored to the specific needs of each client.</p></div>
+          <div class="value-card reveal"><span>05</span><h3>Passion</h3><p>We stay committed and continuously look for better technology solutions.</p></div>
+          <div class="value-card reveal"><span>06</span><h3>Integrity</h3><p>We do what is right and never compromise our values.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="section partners" id="partners">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="section-tag">OUR KEY TECHNOLOGY PARTNERS</span><h2>Trusted global technology ecosystem.</h2></div>
+          <p>Partner logos below are taken from the supplied Infosis company profile. The presentation states that the list continues.</p>
+        </div>
+
+        <div class="logo-marquee" aria-label="Technology partner logos">
+          <div class="logo-track">
+            <div class="logo-set">
+              <img src="{% static 'assets/partner-26.png' %}" alt="Lutron">
+              <img src="{% static 'assets/partner-27.png' %}" alt="Vertiv">
+              <img src="{% static 'assets/partner-28.png' %}" alt="Veeam">
+              <img src="{% static 'assets/partner-29.png' %}" alt="Hewlett Packard Enterprise">
+              <img src="{% static 'assets/partner-30.png' %}" alt="Hanwha">
+              <img src="{% static 'assets/partner-31.png' %}" alt="Cisco">
+              <img src="{% static 'assets/partner-32.png' %}" alt="Yealink">
+              <img src="{% static 'assets/partner-33.png' %}" alt="VDA">
+              <img src="{% static 'assets/partner-34.png' %}" alt="APC Schneider Electric">
+              <img src="{% static 'assets/partner-36.png' %}" alt="Dell">
+              <img src="{% static 'assets/partner-35.png' %}" alt="VMware">
+              <img src="{% static 'assets/partner-38.png' %}" alt="Fortinet">
+              <img src="{% static 'assets/partner-39.png' %}" alt="Grandstream">
+              <img src="{% static 'assets/partner-40.png' %}" alt="Interel">
+              <img src="{% static 'assets/partner-41.png' %}" alt="Riello UPS">
+              <img src="{% static 'assets/partner-42.png' %}" alt="Commvault">
+              <img src="{% static 'assets/partner-43.png' %}" alt="Microsoft Surface">
+              <img src="{% static 'assets/partner-44.png' %}" alt="Hikvision">
+              <img src="{% static 'assets/partner-45.png' %}" alt="Aruba">
+              <img src="{% static 'assets/partner-46.png' %}" alt="Splunk">
+              <img src="{% static 'assets/partner-47.png' %}" alt="Leviton">
+              <img src="{% static 'assets/partner-48.png' %}" alt="Eaton">
+              <img src="{% static 'assets/partner-49.png' %}" alt="Veritas">
+              <img src="{% static 'assets/partner-50.png' %}" alt="Fusion">
+              <img src="{% static 'assets/partner-51.png' %}" alt="Maxess">
+              <img src="{% static 'assets/partner-52.png' %}" alt="Huawei">
+              <img src="{% static 'assets/partner-53.png' %}" alt="Trend Micro">
+              <img src="{% static 'assets/partner-54.png' %}" alt="HMS">
+              <img src="{% static 'assets/partner-55.png' %}" alt="Barracuda">
+              <img src="{% static 'assets/partner-56.png' %}" alt="Lenovo">
+              <img src="{% static 'assets/partner-57.png' %}" alt="Hotlync">
+              <img src="{% static 'assets/partner-58.png' %}" alt="Ruijie Networks">
+              <img src="{% static 'assets/partner-59.png' %}" alt="Kaspersky">
+            </div>
+            <div class="logo-set" aria-hidden="true">
+              <img src="{% static 'assets/partner-26.png' %}" alt="">
+              <img src="{% static 'assets/partner-27.png' %}" alt="">
+              <img src="{% static 'assets/partner-28.png' %}" alt="">
+              <img src="{% static 'assets/partner-29.png' %}" alt="">
+              <img src="{% static 'assets/partner-30.png' %}" alt="">
+              <img src="{% static 'assets/partner-31.png' %}" alt="">
+              <img src="{% static 'assets/partner-32.png' %}" alt="">
+              <img src="{% static 'assets/partner-33.png' %}" alt="">
+              <img src="{% static 'assets/partner-34.png' %}" alt="">
+              <img src="{% static 'assets/partner-36.png' %}" alt="">
+              <img src="{% static 'assets/partner-35.png' %}" alt="">
+              <img src="{% static 'assets/partner-38.png' %}" alt="">
+              <img src="{% static 'assets/partner-39.png' %}" alt="">
+              <img src="{% static 'assets/partner-40.png' %}" alt="">
+              <img src="{% static 'assets/partner-41.png' %}" alt="">
+              <img src="{% static 'assets/partner-42.png' %}" alt="">
+              <img src="{% static 'assets/partner-43.png' %}" alt="">
+              <img src="{% static 'assets/partner-44.png' %}" alt="">
+              <img src="{% static 'assets/partner-45.png' %}" alt="">
+              <img src="{% static 'assets/partner-46.png' %}" alt="">
+              <img src="{% static 'assets/partner-47.png' %}" alt="">
+              <img src="{% static 'assets/partner-48.png' %}" alt="">
+              <img src="{% static 'assets/partner-49.png' %}" alt="">
+              <img src="{% static 'assets/partner-50.png' %}" alt="">
+              <img src="{% static 'assets/partner-51.png' %}" alt="">
+              <img src="{% static 'assets/partner-52.png' %}" alt="">
+              <img src="{% static 'assets/partner-53.png' %}" alt="">
+              <img src="{% static 'assets/partner-54.png' %}" alt="">
+              <img src="{% static 'assets/partner-55.png' %}" alt="">
+              <img src="{% static 'assets/partner-56.png' %}" alt="">
+              <img src="{% static 'assets/partner-57.png' %}" alt="">
+              <img src="{% static 'assets/partner-58.png' %}" alt="">
+              <img src="{% static 'assets/partner-59.png' %}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section class="section clients" id="clients">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="section-tag">OUR VALUED CLIENTS</span><h2>Trusted across hospitality, retail, healthcare, corporate and government.</h2></div>
+          <p>The supplied Infosis profile presents these client logos and states that the list continues.</p>
+        </div>
+
+        <div class="client-slider">
+          <button class="client-arrow left" id="clientPrev" aria-label="Previous clients">‹</button>
+          <div class="client-viewport">
+            <div class="client-track" id="clientTrack">
+              <div class="client-page">
+                <div class="client-logo"><img src="{% static 'assets/client-63.png' %}" alt="Client"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-64.png' %}" alt="Arada"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-65.png' %}" alt="Wyndham Hotels & Resorts"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-66.png' %}" alt="Holiday Inn"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-67.png' %}" alt="Client"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-68.png' %}" alt="Millennium Hotels & Resorts"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-69.png' %}" alt="Nakheel"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-70.png' %}" alt="Staybridge Suites"></div>
+              </div>
+              <div class="client-page">
+                <div class="client-logo"><img src="{% static 'assets/client-72.png' %}" alt="Hilton Hotels & Resorts"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-73.png' %}" alt="Dubai Holding"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-74.png' %}" alt="La Ville Hotel & Suites"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-75.png' %}" alt="Autograph Collection Hotels"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-76.png' %}" alt="Two Seasons Hotel & Apartments"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-77.png' %}" alt="Hilton Hotels & Resorts"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-78.png' %}" alt="Four Seasons"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-79.png' %}" alt="Gemini Property Developers"></div>
+              </div>
+              <div class="client-page">
+                <div class="client-logo"><img src="{% static 'assets/client-80.png' %}" alt="Atlantis The Royal Dubai"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-81.png' %}" alt="Dior"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-82.png' %}" alt="Nakheel"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-83.png' %}" alt="Dubai Holding"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-84.png' %}" alt="Shamal"></div>
+                <div class="client-logo"><img src="{% static 'assets/client-85.png' %}" alt="Palm Hotel"></div>
+                <div class="client-logo"><span>&amp; THE LIST CONTINUES.....</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="client-arrow right" id="clientNext" aria-label="Next clients">›</button>
+        </div>
+        <div class="client-dots" id="clientDots"></div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section class="section methodology" id="methodology">
+      <div class="container">
+        <div class="section-head light reveal">
+          <div><span class="section-tag">PROJECT EXECUTION METHODOLOGY</span><h2>A structured, client-focused delivery model.</h2></div>
+          <p>Every project moves through clear stages for quality assurance, documentation and ongoing support.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal"><span>01</span><h3>Requirement Analysis</h3><p>Understanding business needs, site assessment and compliance requirements.</p></div>
+          <div class="step reveal"><span>02</span><h3>Design & Planning</h3><p>Customized solution architecture and detailed project roadmap.</p></div>
+          <div class="step reveal"><span>03</span><h3>Implementation & Integration</h3><p>Professional installation, configuration and system integration.</p></div>
+          <div class="step reveal"><span>04</span><h3>Testing, Handover & Support</h3><p>Quality assurance, documentation, training and ongoing support.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section why">
+      <div class="container why-grid">
+        <div class="why-image reveal"><img src="{% static 'assets/team.jpg' %}" alt="Infosis technology team"></div>
+        <div class="content reveal">
+          <span class="section-tag">WHY CHOOSE INFOSIS</span>
+          <h2>A local technology partner with an end-to-end mindset.</h2>
+          <p>Infosis SecuritySystem L.L.C. positions itself as a trusted IT Infrastructure & Digital Transformation partner delivering secure, scalable and compliance-driven solutions across the UAE.</p>
+          <div class="check-list">
+            <div><i>✓</i><span><strong>Local Market Expertise</strong> — solutions shaped for UAE business environments.</span></div>
+            <div><i>✓</i><span><strong>End-to-End IT Solutions</strong> — from consulting and design through implementation and support.</span></div>
+            <div><i>✓</i><span><strong>Reliable Support & Maintenance</strong> — proactive monitoring, AMC and on-site/remote support.</span></div>
+            <div><i>✓</i><span><strong>Quality & Compliance Focus</strong> — technology delivery aligned to high standards.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <div><span class="section-tag">LET'S BUILD YOUR DIGITAL FUTURE</span><h2>Need a technology partner in the UAE?</h2><p>Tell us about your infrastructure, security, automation or managed service requirement.</p></div>
+        <a class="btn btn-light" href="#contact">Start a Conversation →</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <span class="section-tag">CONTACT INFOSIS</span>
+          <h2>Let’s build your digital future together.</h2>
+          <p>For IT infrastructure, cybersecurity, ELV, smart automation, data center, unified communications or managed services enquiries, contact the Infosis team.</p>
+
+          <div class="contact-item"><span>☎</span><div><small>Call / WhatsApp</small><a href="tel:+971525893875">+971 52 589 3875</a></div></div>
+          <div class="contact-item"><span>✉</span><div><small>Email</small><a href="mailto:sales@infosis.ae">sales@infosis.ae</a></div></div>
+          <div class="contact-item"><span>⌖</span><div><small>Head Office</small><strong>Dubai, United Arab Emirates</strong></div></div>
+          <div class="contact-item"><span>◎</span><div><small>Website</small><a href="https://www.infosis.ae/" target="_blank" rel="noopener">www.infosis.ae</a></div></div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" method="post" action="{% url 'create_enquiry' %}">
+          {% csrf_token %}
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <div class="form-row">
+            <label>Full Name<input name="name" required placeholder="Your name"></label>
+            <label>Company<input name="company" placeholder="Company name"></label>
+          </div>
+          <div class="form-row">
+            <label>Email<input type="email" name="email" required placeholder="you@company.com"></label>
+            <label>Mobile<input name="mobile" placeholder="+971 ..."></label>
+          </div>
+          <label>Service Required
+            <select name="service">
+              <option>IT Infrastructure</option>
+              <option>Data Center Solutions</option>
+              <option>Cybersecurity</option>
+              <option>ELV & Security Systems</option>
+              <option>Smart Automation</option>
+              <option>Managed Services / AMC</option>
+              <option>Unified Communications</option>
+              <option>Technology Consulting</option>
+            </select>
+          </label>
+          <label>Message<textarea name="message" rows="5" placeholder="Tell us about your requirement..."></textarea></label>
+          <button class="btn btn-primary" type="submit">Send Enquiry →</button>
+          <p class="form-note" id="formStatus" role="status">Your enquiry is securely submitted to the Infosis enquiry database.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img class="footer-logo" src="{% static 'assets/logo.png' %}" alt="Infosis SecuritySystem L.L.C">
+        <p>Your Trusted IT Infrastructure & Digital Transformation Partner in UAE.</p>
+      </div>
+      <div><h4>Services</h4><a href="{% url 'details' %}?type=it-infrastructure">IT Infrastructure</a><a href="{% url 'details' %}?type=cybersecurity">Cybersecurity</a><a href="{% url 'details' %}?type=data-center">Data Center</a><a href="{% url 'details' %}?type=managed-it">Managed IT</a></div>
+      <div><h4>Solutions</h4><a href="{% url 'details' %}?type=hospitality-retail">Hospitality & Retail</a><a href="{% url 'details' %}?type=digital-technologies">Digital Technologies</a><a href="#partners">Technology Partners</a><a href="#clients">Valued Clients</a></div>
+      <div><h4>Contact</h4><a href="tel:+971525893875">+971 52 589 3875</a><a href="mailto:sales@infosis.ae">sales@infosis.ae</a><span>Dubai, UAE</span></div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© <span id="year"></span> Infosis SecuritySystem L.L.C. All rights reserved.</span><span>Secure • Scalable • Future-Ready</span></div></div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/971525893875" target="_blank" rel="noopener" aria-label="WhatsApp Infosis">WA</a>
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

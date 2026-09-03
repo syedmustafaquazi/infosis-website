@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infosis Enquiry Dashboard</title>
+<link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+<header class="dash-header">
+  <div class="dash-brand"><img src="{% static 'assets/logo.png' %}" alt="Infosis"><div><strong>Infosis</strong><span>Enquiry Dashboard</span></div></div>
+  <div class="dash-actions"><a href="{% url 'home' %}" target="_blank">View Website ↗</a><a href="{% url 'dashboard_logout' %}">Logout</a></div>
+</header>
+<main class="dash-main">
+  <section class="dash-welcome"><div><span class="kicker">ADMINISTRATION</span><h1>Website Enquiries</h1><p>Review, track and manage customer requests submitted through the Infosis website.</p></div><a class="admin-link" href="/admin/enquiries/enquiry/">Django Admin ↗</a></section>
+  <section class="stats">
+    <div class="stat"><span>Total Enquiries</span><strong>{{ total }}</strong><small>All submissions</small></div>
+    <div class="stat"><span>New</span><strong>{{ new_count }}</strong><small>Needs attention</small></div>
+    <div class="stat"><span>In Progress</span><strong>{{ progress_count }}</strong><small>Being handled</small></div>
+    <div class="stat"><span>Closed</span><strong>{{ closed_count }}</strong><small>Completed</small></div>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><div><h2>Recent Enquiries</h2><p>Latest 100 website submissions</p></div><span class="user-pill">Signed in as {{ request.user.username }}</span></div>
+    {% if enquiries %}
+    <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Contact</th><th>Service</th><th>Message</th><th>Status</th><th>Received</th><th>Action</th></tr></thead><tbody>
+    {% for e in enquiries %}
+    <tr>
+      <td><strong>{{ e.name }}</strong><small>{{ e.company|default:'Individual / not provided' }}</small></td>
+      <td><a href="mailto:{{ e.email }}">{{ e.email }}</a>{% if e.mobile %}<small>{{ e.mobile }}</small>{% endif %}</td>
+      <td><span class="service-chip">{{ e.service }}</span></td>
+      <td class="message-cell" title="{{ e.message }}">{{ e.message|default:'No message provided'|truncatechars:90 }}</td>
+      <td><form method="post" action="{% url 'update_status' e.pk %}">{% csrf_token %}<select name="status" onchange="this.form.submit()">{% for key,label in e.STATUS_CHOICES %}<option value="{{ key }}" {% if e.status == key %}selected{% endif %}>{{ label }}</option>{% endfor %}</select></form></td>
+      <td><small>{{ e.created_at|date:'d M Y' }}<br>{{ e.created_at|date:'H:i' }}</small></td>
+      <td><form method="post" action="{% url 'delete_enquiry' e.pk %}" onsubmit="return confirm('Delete this enquiry?');">{% csrf_token %}<button class="delete-btn" type="submit">Delete</button></form></td>
+    </tr>
+    {% endfor %}
+    </tbody></table></div>
+    {% else %}<div class="empty"><div>✉</div><h3>No enquiries yet</h3><p>New website enquiries will appear here automatically.</p></div>{% endif %}
+  </section>
+</main>
+</body>
+</html>

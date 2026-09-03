@@ -1,0 +1,24 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infosis Admin Login</title>
+<link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body class="login-page">
+<div class="login-card">
+  <img src="{% static 'assets/logo.png' %}" alt="Infosis SecuritySystem L.L.C" class="login-logo">
+  <span class="login-kicker">SECURE ADMIN AREA</span>
+  <h1>Enquiry Dashboard</h1>
+  <p>Sign in to manage website enquiries and customer requests.</p>
+  {% for message in messages %}<div class="alert">{{ message }}</div>{% endfor %}
+  <form method="post">{% csrf_token %}
+    <label>Username<input name="username" required autofocus autocomplete="username"></label>
+    <label>Password<input type="password" name="password" required autocomplete="current-password"></label>
+    <button type="submit">Sign in →</button>
+  </form>
+  <a href="{% url 'home' %}" class="back-site">← Back to website</a>
+</div>
+</body>
+</html>
