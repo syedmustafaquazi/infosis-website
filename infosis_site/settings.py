@@ -3,9 +3,40 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-infosis-change-this-in-production'
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+
+# =========================
+# SECURITY / ENVIRONMENT
+# =========================
+
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-infosis-change-this-in-production'
+)
+
+DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
+
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get(
+        'ALLOWED_HOSTS',
+        '127.0.0.1,localhost'
+    ).split(',')
+    if host.strip()
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in os.environ.get(
+        'CSRF_TRUSTED_ORIGINS',
+        ''
+    ).split(',')
+    if origin.strip()
+]
+
+
+# =========================
+# APPLICATIONS
+# =========================
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -17,6 +48,11 @@ INSTALLED_APPS = [
     'enquiries',
 ]
 
+
+# =========================
+# MIDDLEWARE
+# =========================
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -26,6 +62,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+# =========================
+# URL / TEMPLATES
+# =========================
 
 ROOT_URLCONF = 'infosis_site.urls'
 
@@ -46,6 +87,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'infosis_site.wsgi.application'
 
+
+# =========================
+# DATABASE
+# =========================
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -53,34 +99,67 @@ DATABASES = {
     }
 }
 
+
+# =========================
+# PASSWORD VALIDATION
+# =========================
+
 AUTH_PASSWORD_VALIDATORS = []
+
+
+# =========================
+# INTERNATIONALIZATION
+# =========================
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Dubai'
+
 USE_I18N = True
 USE_TZ = True
+
+
+# =========================
+# STATIC FILES
+# =========================
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+
+# =========================
+# DEFAULT PRIMARY KEY
+# =========================
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# =========================
+# LOGIN / DASHBOARD
+# =========================
 
 LOGIN_URL = '/dashboard/login/'
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/dashboard/login/'
 
-# For development, email notifications are printed in the terminal.
-# Replace these settings with SMTP credentials before production use.
+
+# =========================
+# EMAIL
+# =========================
+
 DEFAULT_FROM_EMAIL = 'website@infosis.ae'
 ENQUIRY_NOTIFICATION_EMAIL = 'sales@infosis.ae'
+
 EMAIL_HOST = os.environ.get('EMAIL_HOST', '')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '587'))
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', '1') == '1'
+
 EMAIL_BACKEND = (
     'django.core.mail.backends.smtp.EmailBackend'
-    if EMAIL_HOST else
+    if EMAIL_HOST
+    else
     'django.core.mail.backends.console.EmailBackend'
 )
